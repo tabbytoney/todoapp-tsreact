@@ -10,10 +10,26 @@ type Props = {
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 };
 
-const TodoCard: React.FC<Props> = ({ todo, todos, setTodos }) => {
+const TodoCard = ({ todo, todos, setTodos }: Props) => {
+  const handleDone = (id: number) => {
+    //  map through all todos, whatever id matches change to isDone
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+      )
+    );
+    console.log('done');
+  };
   return (
     <form className='todos_single'>
-      <span className='todos_single--text'>{todo.todo}</span>
+      {
+        // if todo is done, add class to change style
+        todo.isDone ? (
+          <s className='todos_single--text'>{todo.todo}</s>
+        ) : (
+          <span className='todos_single--text'>{todo.todo}</span>
+        )
+      }
       <div>
         <span className='icon'>
           <AiFillEdit />
@@ -21,7 +37,7 @@ const TodoCard: React.FC<Props> = ({ todo, todos, setTodos }) => {
         <span className='icon'>
           <AiFillDelete />
         </span>
-        <span className='icon'>
+        <span className='icon' onClick={() => handleDone(todo.id)}>
           <MdDone />
         </span>
       </div>
