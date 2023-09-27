@@ -54,9 +54,11 @@
 
 .todos {
   display: flex;
-  justify-content: space-evenly;
-  width: 90%;
-  flex-wrap: wrap;
+  width: 47.5%;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: rgb(50, 195, 205);
 }
 
 .dragactive {
@@ -79,10 +81,10 @@
 
 .todos_single {
   display: flex;
-  width: 29.5%;
   border-radius: 5px;
   padding: 20px;
   margin-top: 15px;
+  transition: 0.2s;
   background-image: url('https://img.freepik.com/free-photo/crumpled-yellow-paper-background-close-up_60487-2390.jpg?size=626&ext=jpg');
 }
 
@@ -92,7 +94,7 @@
 
 .todos_single:hover {
   box-shadow: 0 0 5px black;
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .todos_single--text {
