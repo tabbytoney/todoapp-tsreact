@@ -10,6 +10,8 @@ const App: React.FC = () => {
   // state to contain all todos to show as list
   const [todos, setTodos] = useState<Todo[]>([]);
 
+  const [completedTodos, setCompletedTodos] = useState<Todo[]>([]);
+
   // for when user clicks on add button
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,7 +28,12 @@ const App: React.FC = () => {
     <div className='App'>
       <span className='heading'>To Do</span>
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
-      <TodoList todos={todos} setTodos={setTodos} />
+      <TodoList
+        todos={todos}
+        setTodos={setTodos}
+        completedTodos={completedTodos}
+        setCompletedTodos={setCompletedTodos}
+      />
     </div>
   );
 };
