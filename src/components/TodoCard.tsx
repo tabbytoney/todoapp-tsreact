@@ -5,12 +5,13 @@ import { MdDone } from 'react-icons/md';
 import './styles.css';
 
 type Props = {
+  index: number;
   todo: Todo;
   todos: Todo[];
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 };
 
-const TodoCard = ({ todo, todos, setTodos }: Props) => {
+const TodoCard = ({ index, todo, todos, setTodos }: Props) => {
   const [edit, setEdit] = React.useState<boolean>(false);
   const [editTodo, setEditTodo] = React.useState<string>(todo.todo);
 
