@@ -1,3 +1,6 @@
+A really simple project to refresh my knowledge in React after a long break.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
