@@ -1,4 +1,4 @@
-A really simple project to refresh my knowledge in React after a long break.
+A really simple project to refresh my knowledge in React after a long break. Not the most optimized, but hey it works.
 
 
 # Getting Started with Create React App
