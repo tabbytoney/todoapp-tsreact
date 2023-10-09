@@ -24,9 +24,46 @@ const App: React.FC = () => {
     }
   };
 
-  console.log(todos);
+  const handleDragEnd = (result: DropResult) => {
+    const { source, destination } = result;
+
+    if (!destination) return;
+
+    // if the destination is the same as the source (still in the todo box), do nothing
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    )
+      return;
+
+    let add,
+      active = todos,
+      complete = completedTodos;
+
+    if (source.droppableId === 'TodosList') {
+      // remove from todo list
+      add = active[source.index];
+      active.splice(source.index, 1);
+    } else {
+      // remove from completed list
+      add = complete[source.index];
+      complete.splice(source.index, 1);
+    }
+
+    if (destination.droppableId === 'TodosList') {
+      // add to todo list. 0 means do not remove anything, add to the index
+      active.splice(destination.index, 0, add);
+    } else {
+      // add to completed list
+      complete.splice(destination.index, 0, add);
+    }
+    // add what we added to the state
+    setCompletedTodos(complete);
+    setTodos(active);
+  };
+
   return (
-    <DragDropContext onDragEnd={() => console.log('hi')}>
+    <DragDropContext onDragEnd={handleDragEnd}>
       <div className='App'>
         <span className='heading'>To Do</span>
         <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
