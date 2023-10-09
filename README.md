@@ -1,5 +1,10 @@
 A really simple project to refresh my knowledge in React after a long break. Not the most optimized, but hey it works.
 
+Screen recording of functionality:
+
+https://github.com/tabbytoney/todoapp-tsreact/assets/60009709/97533bf7-0602-4d0a-a753-374d901cab99
+
+
 
 # Getting Started with Create React App
 
